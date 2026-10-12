@@ -1,0 +1,65 @@
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  min-width: 420px;
+  padding-top: 8px;
+}
+
+.campo-completo {
+  width: 100%;
+}
+
+.itens-cabecalho {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 4px 0;
+}
+
+.itens-cabecalho h3 {
+  margin: 0;
+}
+
+.itens-lista {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.item-linha {
+  display: flex;
+  align-items: start;
+  gap: 8px;
+}
+
+.campo-produto {
+  flex: 1;
+}
+
+.campo-quantidade {
+  width: 90px;
+}
+
+.total {
+  font-weight: 500;
+  margin: 8px 0 0;
+}
+
+.erros {
+  background: #fdecea;
+  color: #b71c1c;
+  border-radius: 4px;
+  padding: 8px 12px;
+  margin-top: 8px;
+}
+
+.erros p {
+  margin: 2px 0;
+}
+
+@media (max-width: 560px) {
+  .form {
+    min-width: unset;
+  }
+}

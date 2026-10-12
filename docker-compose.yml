@@ -1,0 +1,31 @@
+services:
+  api:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: pedidos-api
+    environment:
+      ASPNETCORE_ENVIRONMENT: Production
+      ASPNETCORE_URLS: http://+:8080
+    expose:
+      - "8080"
+    networks:
+      - pedidos-net
+    restart: unless-stopped
+
+  frontend:
+    build:
+      context: ./frontend/pedidos-web
+      dockerfile: Dockerfile
+    container_name: pedidos-frontend
+    ports:
+      - "8080:80"
+    depends_on:
+      - api
+    networks:
+      - pedidos-net
+    restart: unless-stopped
+
+networks:
+  pedidos-net:
+    driver: bridge

@@ -1,0 +1,21 @@
+# Dependências e artefatos de build
+node_modules/
+dist/
+.angular/
+
+# Logs / cobertura
+npm-debug.log*
+yarn-error.log*
+coverage/
+*.tsbuildinfo
+
+# IDE / SO
+.idea/
+.vscode/
+*.swp
+.DS_Store
+Thumbs.db
+
+# Docker
+Dockerfile
+.dockerignore

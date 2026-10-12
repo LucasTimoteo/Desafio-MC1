@@ -1,0 +1,51 @@
+# ---------- .NET ----------
+bin/
+obj/
+out/
+[Dd]ebug/
+[Rr]elease/
+*.user
+*.suo
+project.lock.json
+artifacts/
+.vs/
+
+# ---------- Angular / Node ----------
+node_modules/
+dist/
+.angular/
+npm-debug.log*
+yarn-error.log*
+*.tsbuildinfo
+coverage/
+
+# ---------- Testes / cobertura ----------
+TestResults/
+*.trx
+*.coverage
+*.coverlet.json
+
+# ---------- Segredos e configurações sensíveis ----------
+*.env
+.env.*
+!.env.example
+appsettings.*.local.json
+secrets.json
+*.pfx
+*.key
+*.pem
+
+# ---------- IDE / SO ----------
+.idea/
+*.swp
+Thumbs.db
+Desktop.ini
+.DS_Store
+
+# ---------- NÃO ignorar (preservar documentação e enunciado) ----------
+!docs/
+!docs/**
+!.github/
+!.github/**
+!README.md
+!AI_USAGE.md

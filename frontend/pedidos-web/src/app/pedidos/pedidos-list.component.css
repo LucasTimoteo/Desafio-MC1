@@ -1,0 +1,91 @@
+.barra-filtros {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-bottom: 8px;
+}
+
+.campo-busca {
+  flex: 1 1 320px;
+}
+
+.campo-status {
+  width: 180px;
+}
+
+.espacador {
+  flex: 1 1 auto;
+}
+
+.erro-api {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: #fdecea;
+  color: #b71c1c;
+  border-radius: 4px;
+  padding: 8px 12px;
+  margin: 8px 0;
+}
+
+.tabela-wrapper {
+  position: relative;
+  overflow-x: auto;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  border-radius: 8px;
+}
+
+.tabela-pedidos {
+  width: 100%;
+}
+
+.col-descricao {
+  max-width: 320px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.col-acoes {
+  width: 160px;
+  text-align: right;
+  white-space: nowrap;
+}
+
+.status {
+  display: inline-block;
+  padding: 2px 10px;
+  border-radius: 12px;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.status-aberto {
+  background: #e3f2fd;
+  color: #1565c0;
+}
+
+.status-pago {
+  background: #e8f5e9;
+  color: #2e7d32;
+}
+
+.status-cancelado {
+  background: #fdecea;
+  color: #c62828;
+}
+
+.vazio {
+  text-align: center;
+  color: rgba(0, 0, 0, 0.6);
+  padding: 24px;
+  margin: 0;
+}
+
+.rodape-atualizacao {
+  text-align: right;
+  color: rgba(0, 0, 0, 0.55);
+  font-size: 12px;
+  margin: 4px 2px 0;
+}

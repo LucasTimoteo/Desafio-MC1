@@ -1,0 +1,89 @@
+<h2 mat-dialog-title>{{ editando ? 'Editar pedido' : 'Novo pedido' }}</h2>
+
+<mat-dialog-content>
+  <form [formGroup]="form" class="form" (ngSubmit)="salvar()">
+    <mat-form-field appearance="outline" class="campo-completo">
+      <mat-label>Nome do cliente</mat-label>
+      <input matInput formControlName="nomeCliente" maxlength="120" />
+      @if (form.get('nomeCliente')?.touched && form.get('nomeCliente')?.invalid) {
+        <mat-error>Informe um nome entre 2 e 120 caracteres.</mat-error>
+      }
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" class="campo-completo">
+      <mat-label>Descrição</mat-label>
+      <textarea matInput formControlName="descricao" rows="2" maxlength="500"></textarea>
+      @if (form.get('descricao')?.touched && form.get('descricao')?.invalid) {
+        <mat-error>A descrição é obrigatória (até 500 caracteres).</mat-error>
+      }
+    </mat-form-field>
+
+    <div class="itens-cabecalho">
+      <h3>Itens</h3>
+      <button type="button" mat-stroked-button color="primary" (click)="adicionarItem()">
+        <mat-icon>add</mat-icon>
+        Adicionar item
+      </button>
+    </div>
+
+    <div formArrayName="itens" class="itens-lista">
+      @for (item of itens.controls; track item; let i = $index) {
+        <div class="item-linha" [formGroupName]="i">
+          <mat-form-field appearance="outline" class="campo-produto">
+            <mat-label>Produto</mat-label>
+            <mat-select formControlName="produtoId">
+              @for (produto of produtos; track produto.id) {
+                <mat-option [value]="produto.id">
+                  {{ produto.nome }} — {{ produto.preco | currency: 'BRL' }}
+                </mat-option>
+              }
+            </mat-select>
+            @if (item.get('produtoId')?.touched && item.get('produtoId')?.invalid) {
+              <mat-error>Selecione um produto.</mat-error>
+            }
+          </mat-form-field>
+
+          <mat-form-field appearance="outline" class="campo-quantidade">
+            <mat-label>Qtd.</mat-label>
+            <input matInput type="number" min="1" max="1000" formControlName="quantidade" />
+            @if (item.get('quantidade')?.touched && item.get('quantidade')?.invalid) {
+              <mat-error>1 a 1000.</mat-error>
+            }
+          </mat-form-field>
+
+          <button
+            type="button"
+            mat-icon-button
+            color="warn"
+            aria-label="Remover item"
+            [disabled]="itens.length === 1"
+            (click)="removerItem(i)"
+          >
+            <mat-icon>delete</mat-icon>
+          </button>
+        </div>
+      }
+    </div>
+
+    <p class="total">Total previsto: {{ totalPreview() | currency: 'BRL' }}</p>
+
+    @if (erros().length > 0) {
+      <div class="erros" role="alert">
+        @for (erro of erros(); track erro) {
+          <p>{{ erro }}</p>
+        }
+      </div>
+    }
+  </form>
+</mat-dialog-content>
+
+<mat-dialog-actions align="end">
+  <button mat-button mat-dialog-close [disabled]="salvando()">Cancelar</button>
+  <button mat-raised-button color="primary" [disabled]="salvando()" (click)="salvar()">
+    @if (salvando()) {
+      <mat-spinner diameter="20"></mat-spinner>
+    } @else {
+      {{ editando ? 'Salvar' : 'Criar' }}
+    }
+  </button>
+</mat-dialog-actions>

@@ -1,0 +1,22 @@
+# Saídas de build
+**/bin/
+**/obj/
+**/out/
+artifacts/
+
+# Testes / cobertura
+**/TestResults/
+*.trx
+*.coverage
+
+# IDE / SO
+.vs/
+.idea/
+*.user
+*.suo
+.DS_Store
+Thumbs.db
+
+# Docker
+Dockerfile
+.dockerignore
