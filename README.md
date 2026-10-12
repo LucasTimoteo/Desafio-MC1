@@ -3,9 +3,8 @@
 Aplicação de **Cadastro de Pedidos** (API REST + página web + Docker) desenvolvida como
 resposta ao desafio técnico para Desenvolvedor Web Pleno .NET da MC1.
 
-> **Status:** preparação do projeto. Esta etapa contém apenas o *harness* de
-> desenvolvimento (instruções, documentação e critérios de validação).
-> **A implementação da aplicação ainda será realizada.**
+> **Status:** implementação da aplicação disponível. Para uma explicação detalhada
+> voltada à apresentação em entrevista, consulte [PROJECT_DESCRIPTION.md](PROJECT_DESCRIPTION.md).
 
 ## Objetivo do desafio
 
@@ -30,7 +29,7 @@ status (`Aberto`, `Pago`, `Cancelado`) e data de criação.
 
 Detalhamento e rastreabilidade em [docs/requisitos.md](docs/requisitos.md).
 
-## Tecnologias planejadas
+## Tecnologias utilizadas
 
 | Camada | Tecnologia |
 |--------|-----------|
@@ -48,30 +47,36 @@ Detalhamento e rastreabilidade em [docs/requisitos.md](docs/requisitos.md).
 - [docs/requisitos.md](docs/requisitos.md) — requisitos explícitos vs. decisões propostas.
 - [docs/arquitetura.md](docs/arquitetura.md) — arquitetura mínima e responsabilidades.
 - [docs/criterios-de-aceitacao.md](docs/criterios-de-aceitacao.md) — checklist de verificação.
+- [PROJECT_DESCRIPTION.md](PROJECT_DESCRIPTION.md) — explicação detalhada para apresentação em entrevista.
 - [.github/copilot-instructions.md](.github/copilot-instructions.md) — instruções para desenvolvimento assistido por IA.
 
 ## Como rodar
 
-> A ser preenchido quando a implementação for feita. A meta é subir a aplicação com um
-> único comando:
->
-> ```bash
-> docker compose up
-> ```
+Suba a API e o frontend com Docker Compose a partir da raiz:
+
+```bash
+docker compose up --build
+```
+
+Acesse a interface em <http://localhost:8080>. A API é acessada pelo frontend através
+do proxy reverso do Nginx. Para detalhes da comunicação e da execução local, consulte
+[PROJECT_DESCRIPTION.md](PROJECT_DESCRIPTION.md).
 
 ## Decisões tomadas
 
-Resumidas na tabela de tecnologias acima e detalhadas em
-[docs/arquitetura.md](docs/arquitetura.md).
+As escolhas estão resumidas na tabela de tecnologias acima e detalhadas em
+[docs/arquitetura.md](docs/arquitetura.md) e no [guia de apresentação](PROJECT_DESCRIPTION.md).
 
 ## O que faria com mais tempo
 
-> A ser preenchido durante a implementação (ex.: persistência real, autenticação,
-> testes de frontend, CI).
+Persistência durável, autenticação, testes de frontend, CI/CD e observabilidade
+avançada não fazem parte do escopo implementado. Com mais tempo, eu adicionaria
+persistência durável e testes de interface.
 
 ## O que ficou incompleto
 
-> A ser preenchido ao final da implementação, caso algo não seja concluído.
+Não há persistência em disco nem testes automatizados de frontend; esses pontos não
+fazem parte das decisões de escopo descritas em [docs/requisitos.md](docs/requisitos.md).
 
 ## Uso de IA
 
